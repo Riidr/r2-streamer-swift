@@ -82,10 +82,6 @@ final class PDFFileCGParser: PDFFileParser, Loggable {
         guard let document = self.document else {
             throw PDFParserError.openFailed
         }
-        // FIXME: how should we handle PDF encrypted with a password?
-        guard !document.isEncrypted else {
-            throw PDFParserError.fileEncryptedWithPassword
-        }
 
         let info = document.info
         return PDFFileMetadata(

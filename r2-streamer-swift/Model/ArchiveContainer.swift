@@ -42,7 +42,7 @@ class ArchiveContainer: Container, Loggable {
         guard archive.locateFile(path: path) else {
             throw ContainerError.missingFile(path: relativePath)
         }
-        return try archive.informationsOfCurrentFile().compressedLength
+        return try archive.informationsOfCurrentFile().length
     }
     
     func dataInputStream(relativePath: String) throws -> SeekableInputStream {
